@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#ffffff"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sortable - Awesome masonry plugin</title>
+  <meta name="description" content="Awesome masonry plugin">
+  <meta name="og:title" content="Sortable - Awesome masonry plugin">
+  <meta name="og:description" content="Awesome masonry plugin">
+  <link rel="icon" type="image/png" href="">
+  <link rel="stylesheet" href="./css/sortable.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,500,700|Montserrat:400,700" rel="stylesheet">
+</head>
+<body>
+  <header>
+    
+  </header>
+  <main class="sortable">
+    <div class="container">
+      <div class="wrapper">
+        <ul class="sortable__nav nav">
+          <li>
+            <a data-s-link="all" class="nav__link">
+              Tout
+            </a>
+          </li>
+          <li>
+            <a data-s-link="development" class="nav__link">
+              Développement
+            </a>
+          </li>
+          <li>
+            <a data-s-link="webdesign" class="nav__link">
+              Web Design
+            </a>
+          </li>
+        </ul>
+        <div data-s class="sortable__project project">
+          <div data-s-element="development">
+            <div class="project__item card">
+              <img class="card__picture" src="./images/item-1.jpg" alt="">
+              <div class="card-infos">
+                <h2 class="card__title">Example 1</h2>
+                <p class="card__text">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, eius, asperiores. Incidunt sapiente est quae iure ab quam accusantium totam voluptatibus recusandae eius rem molestias, mollitia quos laborum quibusdam. Dolore.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div data-s-element="development">
+            <div class="project__item card">
+              <img class="card__picture" src="./images/item-2.jpg" alt="">
+              <div class="card-infos">
+                <h2 class="card__title">Example 2</h2>
+                <p class="card__text">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum vitae necessitatibus, dolorem similique vero explicabo voluptatibus perspiciatis velit asperiores consectetur tenetur enim, minus ipsam quis. Perferendis explicabo tempore impedit hic.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div data-s-element="webdesign">
+            <div class="project__item card">
+              <img class="card__picture" src="./images/item-3.jpg" alt="">
+              <div class="card-infos">
+                <h2 class="card__title">Example 3</h2>
+                <p class="card__text">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, placeat voluptate, fuga tenetur eos ducimus animi porro voluptatem enim recusandae, dolorem praesentium. Itaque fugit qui a ullam numquam placeat in.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div data-s-element="development">
+            <div class="project__item card">
+              <img class="card__picture" src="./images/item-4.jpg" alt="">
+              <div class="card-infos">
+                <h2 class="card__title">Example 4</h2>
+                <p class="card__text">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit doloremque quisquam, obcaecati unde nam est quos velit totam perspiciatis. Dolore reiciendis quas libero molestiae, amet facere et blanditiis dolorum porro!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div data-s-element="development">
+            <div class="project__item card">
+              <img class="card__picture" src="./images/item-5.jpg" alt="">
+              <div class="card-infos">
+                <h2 class="card__title">Example 5</h2>
+                <p class="card__text">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, nulla hic? Corporis quibusdam iste, ad iusto nemo a ratione dolor rerum et exercitationem maiores, sed voluptas nesciunt architecto, libero placeat.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    
+  </footer>
+
+  <script type="text/javascript" src="../src/sortable.js"></script>
+  <script type="text/javascript">
+    var sortable = new Sortable();
+  </script>
+</body>
+</html>
