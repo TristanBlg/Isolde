@@ -1,52 +1,67 @@
 class Sortable {
   constructor({
-    parent    = document.querySelector('[data-s]'),
-    links     = document.querySelectorAll('[data-s-link]'),
-    elements  = document.querySelectorAll('[data-s-element]'),
-    active    = 'is-active',
-    column    = 3, 
-    margin    = 20
+    parent      = document.querySelector('#sortable'),
+    links       = document.querySelectorAll('a[data-sortablejs]'),
+    active      = 'is-active',
+    margin      = 20,
+    responsive  = {
+      980: {
+        columns: 3,
+        foo: 'bar'
+      },
+      480: {
+        columns: 2,
+        foo: 'bar'
+      },
+      0: {
+        columns: 1,
+        foo: 'bar'
+      }
+    }
   } = {}) {
-    this.parent     = parent
-    this.links      = Array.from(links)
-    this.active     = active
-    this.elements   = Array.from(elements)
-    this.column     = column
-    this.margin     = margin
+    this.parent           = parent
+    this.links            = Array.from(links)
+    this.active           = active
+    this.elements         = Array.from(this.parent.children)
+    this.activeElements   = this.elements
+    this.columns          = 1
+    this.margin           = margin
+    this.responsive       = responsive
 
     this.init()
     this.resize()
   }
 
   orderelements(){
-    let {parent, elements, column, margin} = this
-
+    let {parent, activeElements, columns, margin} = this
     let windowWidth = window.innerWidth
-    if(windowWidth <= 980 && windowWidth > 480) {
-      column = 2
-    } else if (windowWidth <= 480) {
-      column = 1
-    }
+    let columnsCount = Object.entries(this.responsive).reduce((acc, val, id)=>{
+      let cle = val[0]
+      if(!acc[cle] && windowWidth > cle && cle > Math.max(acc[0])){
+        acc[0] = cle
+        acc[1] = val[1]['columns']
+      }
+      return acc
+    }, [0, 1])
+    this.columns = columns = columnsCount[1]
 
     let parentWidth     = parent.offsetWidth
-    let rectWidth       = (parentWidth - (margin * (column - 1))) / column
+    let rectWidth       = (parentWidth - (margin * (columns - 1))) / columns
     let positionX       = 0
     let arrayRectHeight = []
 
     new Promise((resolve, reject) => {
       resolve(
-        elements.forEach((el, id) => {
+        activeElements.forEach((el, id) => {
           el.style.position   = "absolute"
           el.style.width      = rectWidth+'px'
 
-
-          const columnsHeight = sumArrHeight(arrayRectHeight)
+          const columnssHeight = sumArrHeight(arrayRectHeight)
           arrayRectHeight.push(el.offsetHeight)
-          let rectHeight      = (id - column >= 0) ? (columnsHeight[id%column] + (margin * Math.floor(id / column))) : 0
+          let rectHeight      = (id - columns >= 0) ? (columnssHeight[id%columns] + (margin * Math.floor(id / columns))) : 0
           el.style.transform  = `translate3d(${positionX}px, ${rectHeight}px, 0px)`
 
-
-          if(positionX >= rectWidth * (column - 1)) {
+          if(positionX >= rectWidth * (columns - 1)) {
             positionX = 0
           } else {
             positionX = positionX + rectWidth + margin
@@ -55,15 +70,15 @@ class Sortable {
         })
       )
     }).then(() => {
-      const columnsHeight = sumArrHeight(arrayRectHeight)
+      const columnssHeight    = sumArrHeight(arrayRectHeight)
       parent.style.position   = 'relative'
-      let parentHeight        = Math.max(...columnsHeight) + (margin * Math.floor(elements.length / column))
+      let parentHeight        = Math.max(...columnssHeight) + (margin * Math.floor(activeElements.length / columns))
       parent.style.height     = parentHeight+'px'
     })
 
     function sumArrHeight(arr){
       return arr.reduce((acc, val, id)=>{
-        let cle = id%column;
+        let cle = id%columns;
         if(!acc[cle]){
           acc[cle] = 0
         }
@@ -75,20 +90,19 @@ class Sortable {
 
   clickFilter(ev, element) {
     ev.preventDefault()
-    let {links, active} = this
-    const dataLink = element.dataset.sLink
+    let {links, active, elements} = this
+    const dataLink = element.dataset.sortablejs
     links.forEach(el => {
       el.isEqualNode(element) ? el.classList.add(active) : el.classList.remove(active)
     })
-    let newelements = Array.from(document.querySelectorAll(`[data-s-element]`))
     new Promise((resolve, reject) => {
       resolve(
-        this.elements = newelements.filter(el => {
+        this.activeElements = elements.filter(el => {
           if(dataLink === 'all') {
             el.style.opacity = '1'
             return true
           } else {
-            if(el.dataset.sElement !== dataLink) {
+            if(el.dataset.sortablejs !== dataLink) {
               el.style.opacity = '0'
               return false
             } else {

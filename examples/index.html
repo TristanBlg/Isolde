@@ -4,90 +4,80 @@
   <meta charset="utf-8">
   <meta name="theme-color" content="#ffffff"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sortable - Awesome masonry plugin</title>
-  <meta name="description" content="Awesome masonry plugin">
-  <meta name="og:title" content="Sortable - Awesome masonry plugin">
-  <meta name="og:description" content="Awesome masonry plugin">
-  <link rel="icon" type="image/png" href="">
+  <meta http-equiv=“X-UA-Compatible” content=“IE=Edge”>
+  <title>SortableJs - Masonry plugin</title>
   <link rel="stylesheet" href="./css/sortable.css">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,500,700|Montserrat:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Hind:400,600|Open+Sans:300,600" rel="stylesheet">
 </head>
 <body>
-  <header>
-    
+  <header class="header">
+    <h1 class="header__title">
+      Sortable<span class="header__title--high">Js</span>  
+    </h1>
   </header>
   <main class="sortable">
     <div class="container">
       <div class="wrapper">
         <ul class="sortable__nav nav">
           <li>
-            <a data-s-link="all" class="nav__link">
-              Tout
+            <a data-sortablejs="all" class="nav__link">
+              All
             </a>
           </li>
           <li>
-            <a data-s-link="development" class="nav__link">
-              Développement
+            <a data-sortablejs="flatty" class="nav__link">
+              Flatty
             </a>
           </li>
           <li>
-            <a data-s-link="webdesign" class="nav__link">
-              Web Design
+            <a data-sortablejs="funny" class="nav__link">
+              Funny
             </a>
           </li>
         </ul>
-        <div data-s class="sortable__project project">
-          <div data-s-element="development">
-            <div class="project__item card">
+        <div id="sortable">
+          <div data-sortablejs="flatty">
+            <div class="card">
               <img class="card__picture" src="./images/item-1.jpg" alt="">
               <div class="card-infos">
                 <h2 class="card__title">Example 1</h2>
                 <p class="card__text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, eius, asperiores. Incidunt sapiente est quae iure ab quam accusantium totam voluptatibus recusandae eius rem molestias, mollitia quos laborum quibusdam. Dolore.
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, eius, asperiores. Incidunt sapiente est quae iure[...]
                 </p>
               </div>
             </div>
           </div>
-          <div data-s-element="development">
-            <div class="project__item card">
+          <div data-sortablejs="flatty">
+            <div class="card">
               <img class="card__picture" src="./images/item-2.jpg" alt="">
               <div class="card-infos">
                 <h2 class="card__title">Example 2</h2>
                 <p class="card__text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum vitae necessitatibus, dolorem similique vero explicabo voluptatibus perspiciatis velit asperiores consectetur tenetur enim, minus ipsam quis. Perferendis explicabo tempore impedit hic.
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum vitae necessitatibus, dolorem similique vero explicabo[...]
                 </p>
               </div>
             </div>
           </div>
-          <div data-s-element="webdesign">
-            <div class="project__item card">
+          <div data-sortablejs="funny">
+            <div class="card">
               <img class="card__picture" src="./images/item-3.jpg" alt="">
               <div class="card-infos">
                 <h2 class="card__title">Example 3</h2>
                 <p class="card__text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, placeat voluptate, fuga tenetur eos ducimus animi porro voluptatem enim recusandae, dolorem praesentium. Itaque fugit qui a ullam numquam placeat in.
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, placeat voluptate, fuga tenetur eos ducimus animi porro[...]
                 </p>
+                <a href="#" class="card__btn">
+                </a>
               </div>
             </div>
           </div>
-          <div data-s-element="development">
-            <div class="project__item card">
+          <div data-sortablejs="flatty">
+            <div class="card">
               <img class="card__picture" src="./images/item-4.jpg" alt="">
               <div class="card-infos">
                 <h2 class="card__title">Example 4</h2>
                 <p class="card__text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit doloremque quisquam, obcaecati unde nam est quos velit totam perspiciatis. Dolore reiciendis quas libero molestiae, amet facere et blanditiis dolorum porro!
-                </p>
-              </div>
-            </div>
-          </div>
-          <div data-s-element="development">
-            <div class="project__item card">
-              <img class="card__picture" src="./images/item-5.jpg" alt="">
-              <div class="card-infos">
-                <h2 class="card__title">Example 5</h2>
-                <p class="card__text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, nulla hic? Corporis quibusdam iste, ad iusto nemo a ratione dolor rerum et exercitationem maiores, sed voluptas nesciunt architecto, libero placeat.
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit doloremque quisquam, obcaecati unde nam est quos[...]
                 </p>
               </div>
             </div>
@@ -96,8 +86,32 @@
       </div>
     </div>
   </main>
-  <footer>
-    
+  <footer class="footer">
+    <div class="container">
+      <div class="wrapper">
+        <ul class="footer__list list">
+          <li class="list__item item">
+            <span class="item__link" aria-label="Profil Github">
+              Made with ❤️ by <a href="https://tristanboulanger.fr/" aria-label="Tristan's Portfolio" target="_blank" rel="noopener">Tristan Boulanger</a>
+            </span>
+          </li>
+          <li class="list__item item">
+            <a href="https://github.com/TristanBlg" aria-label="Tristan's Github" target="_blank" rel="noopener" class="item__link link">
+              <svg aria-hidden="true" viewBox="0 0 64 64" class="link__icon">
+                <path d="M32 1.952a30.019 30.019 0 0 0-9.469 58.5c1.5.281 2.063-.656 2.063-1.406v-5.625c-8.344 1.779-10.125-3.563-10.125-3.563-1.406-3.469-3.375-4.406-3.375-4.406-2.719-1.875.187-1.781.187-1.781 3 .188 4.594 3.094 4.594 3.094 2.719 4.594 7.031 3.281 8.719 2.531a6.5 6.5 0 0 1 1.875-4.031c-6.656-.75-13.688-3.375-13.688-14.812a11.5 11.5 0 0 1 3.094-8.063 11.217 11.217 0 0 1 .281-7.969s2.531-.844 8.25 3.094a28.944 28.944 0 0 1 7.5-1.031 28.4 28.4 0 0 1 7.5 1.031c5.719-3.844 8.25-3.094 8.25-3.094a11.217 11.217 0 0 1 .281 7.969 11.34 11.34 0 0 1 3.094 8.063c0 11.531-7.031 14.063-13.688 14.813a7.262 7.262 0 0 1 2.063 5.534v8.25c0 .844.562 1.687 2.063 1.406A30.019 30.019 0 0 0 32 1.952z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="miter"></path>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/boulangertristan" aria-label="Tristan's LinkedIn" target="_blank" rel="noopener" class="item__link link">
+              <svg aria-hidden="true" viewBox="0 0 64 64" class="link__icon">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M3.078 22.331h12.188v36.844H3.078z" stroke-linejoin="miter"></path>
+                <path d="M46.719 21.112c-5.344 0-8.531 1.969-11.906 6.281v-5.062H22.625v36.844h12.281V39.206c0-4.219 2.156-8.344 7.031-8.344s7.781 4.125 7.781 8.25v20.063H62V38.269c0-14.532-9.844-17.157-15.281-17.157z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="miter"></path>
+                <path d="M9.219 4.425C5.188 4.425 2 7.331 2 10.894s3.188 6.469 7.219 6.469 7.219-2.906 7.219-6.469-3.188-6.469-7.219-6.469z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="miter"></path>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </footer>
 
   <script type="text/javascript" src="../src/sortable.js"></script>
