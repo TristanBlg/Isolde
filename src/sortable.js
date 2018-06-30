@@ -29,13 +29,12 @@ class Sortable {
     this.responsive       = responsive
 
     this.init()
-    this.resize()
   }
 
   orderelements(){
     let {parent, activeElements, columns, margin} = this
-    let windowWidth = window.innerWidth
-    let columnsCount = Object.entries(this.responsive).reduce((acc, val, id)=>{
+    let windowWidth   = window.innerWidth
+    let columnsCount  = Object.entries(this.responsive).reduce((acc, val, id)=>{
       let cle = val[0]
       if(!acc[cle] && windowWidth > cle && cle > Math.max(acc[0])){
         acc[0] = cle
@@ -56,7 +55,7 @@ class Sortable {
           el.style.position   = "absolute"
           el.style.width      = rectWidth+'px'
 
-          const columnssHeight = sumArrHeight(arrayRectHeight)
+          let columnssHeight  = sumArrHeight(arrayRectHeight, columns)
           arrayRectHeight.push(el.offsetHeight)
           let rectHeight      = (id - columns >= 0) ? (columnssHeight[id%columns] + (margin * Math.floor(id / columns))) : 0
           el.style.transform  = `translate3d(${positionX}px, ${rectHeight}px, 0px)`
@@ -70,15 +69,15 @@ class Sortable {
         })
       )
     }).then(() => {
-      const columnssHeight    = sumArrHeight(arrayRectHeight)
       parent.style.position   = 'relative'
-      let parentHeight        = Math.max(...columnssHeight) + (margin * Math.floor(activeElements.length / columns))
+      let columnssHeight      = sumArrHeight(arrayRectHeight, columns)
+      let parentHeight        = Math.max(...columnssHeight) + (margin * (Math.floor(activeElements.length / columns) - 1))
       parent.style.height     = parentHeight+'px'
     })
 
-    function sumArrHeight(arr){
+    function sumArrHeight(arr, col){
       return arr.reduce((acc, val, id)=>{
-        let cle = id%columns;
+        let cle = id%col;
         if(!acc[cle]){
           acc[cle] = 0
         }
@@ -135,6 +134,8 @@ class Sortable {
       window.addEventListener('load', () => {
         this.orderelements()
       })
+    }).then(()=> {
+      this.resize()
     })
   }
 

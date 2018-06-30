@@ -1,5 +1,5 @@
 :root{
-  --main-bg-color: #4a69bd;
+  --main-bg-color: #ff7675;
 }
 *,
 *::after,
@@ -14,6 +14,8 @@ html{
   -webkit-text-size-adjust: 100%;
 }
 body{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
   font: normal 300 1.4em / 1.2 'Open-sans', helvetica, sans-serif;
@@ -125,23 +127,6 @@ hr{
 }
 .card__text--high{
   font-weight: 600;
-}
-.card__btn{
-  font-size: 1.4rem;
-  font-weight: 300;
-  display: inline-block;
-  padding: 6px 20px;
-  color: #fff;
-  background: var(--main-bg-color);
-  border: 0;
-  border-radius: 2px;
-  cursor: pointer;
-  margin: 20px 0 0;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, .15);
-  transition: background .2s ease-in-out;
-}
-.card__btn:hover{
-  background: #6a89cc;
 }
 
 .header{
