@@ -44,7 +44,7 @@ Put the script at the bottom of your markup:
 <!-- 3st step -->
 <div id="sortable">
 
-    <!-- 1nd step -->
+    <!-- 2nd step -->
     <div data-sortablejs="food"> [...] </div>
     <div data-sortablejs="development"> [...] </div>
     <div data-sortablejs="development"> [...] </div>
@@ -63,4 +63,4 @@ Call the plugin function and it's work !
 ```
 
 ## Documentation
-Please red [OPTIONS.md](https://github.com/TristanBlg/sortableJs/blob/master/docs/OPTIONS.md).
+Please read [OPTIONS.md](https://github.com/TristanBlg/sortableJs/blob/master/docs/OPTIONS.md).
