@@ -6,16 +6,13 @@ class Sortable {
     margin      = 20,
     responsive  = {
       980: {
-        columns: 3,
-        foo: 'bar'
+        columns: 3
       },
       480: {
-        columns: 2,
-        foo: 'bar'
+        columns: 2
       },
       0: {
-        columns: 1,
-        foo: 'bar'
+        columns: 1
       }
     }
   } = {}) {
