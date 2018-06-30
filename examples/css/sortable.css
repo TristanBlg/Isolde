@@ -53,34 +53,6 @@ hr{
 ::-moz-selection{
   background: var(--main-bg-color);
 }*/
-.fadeIn{
-  animation-name: fadeIn;
-  animation-duration: .3s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-}
-.fadeOut{
-  animation-name: fadeOut;
-  animation-duration: .3s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-}
-@keyframes fadeIn{
-  from{
-    opacity: 0;
-  }
-  to{
-    opacity: 1;
-  }
-}
-@keyframes fadeOut{
-  from{
-    opacity: 1;
-  }
-  to{
-    opacity: 0;
-  }
-}
 
 .container{
   width: 100%;
