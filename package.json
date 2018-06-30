@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "description": "",
   "main": "index.html",
-  "scripts": {
-    "start": "parcel ./examples/index.html"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TristanBlg/sortableJs.git"
