@@ -66,10 +66,12 @@ class Sortable {
         })
       )
     }).then(() => {
-      parent.style.position   = 'relative'
       let columnssHeight      = sumArrHeight(arrayRectHeight, columns)
       let parentHeight        = Math.max(...columnssHeight) + (margin * (Math.floor(activeElements.length / columns) - 1))
       parent.style.height     = parentHeight+'px'
+      setTimeout(()=>{
+        parent.style.opacity  = 1
+      }, 200)
     })
 
     function sumArrHeight(arr, col){
@@ -114,7 +116,9 @@ class Sortable {
   }
 
   init(){
-    const {links, active} = this
+    const {parent, links, active} = this
+    parent.style.opacity    = 0
+    parent.style.position   = 'relative'
     new Promise((resolve, reject) => {
       resolve(
         links.forEach((el, id) => {
@@ -129,6 +133,7 @@ class Sortable {
       )
     }).then(() => {
       window.addEventListener('load', () => {
+        parent.style.transition = 'opacity .2s ease-in-out'
         this.orderelements()
       })
     }).then(()=> {
