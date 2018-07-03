@@ -21,7 +21,7 @@ Put the script at the bottom of your markup:
 ```
 
 ### Usage
-1. Create links (a) that have the attribute `data-sortablejs` with an identification value corresponding to a family (ex: food, development, red, etc.).
+1. Create links (a) that have the attribute `data-sortablejs` with an identification value corresponding to a family (ex: food, development, etc.).
 2. Wrap your items (div, a, img, span, li etc.) with an item element (div, ul etc.) that have the attribute `data-sortablejs` with an identification value corresponding to his family.
 3. Wrap your items (div, a, img, span, li etc.) with a container element (div, ul etc.) that have the attribute `id="sortable"`.
 
