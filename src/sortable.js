@@ -14,6 +14,11 @@ class Sortable {
       0: {
         columns: 1
       }
+    },
+    animationClass = {
+      init: 'fadeIn',
+      in: 'fadeIn',
+      out: 'fadeOut'
     }
   } = {}) {
     this.parent           = parent
@@ -26,6 +31,7 @@ class Sortable {
     this.responsive       = responsive
     this.dataLink         = 'all'
     this.winWidth         = window.innerWidth
+    this.animationClass   = animationClass
 
     this.init()
   }
@@ -39,7 +45,7 @@ class Sortable {
     let positionX       = 0
     let arrayRectHeight = []
 
-    new Promise((resolve, reject) => {
+    new Promise(resolve => {
       resolve(
         activeElements.forEach((el, id) => {
           el.style.width      = rectWidth+'px'
@@ -75,7 +81,7 @@ class Sortable {
   }
 
   init(){
-    let {parent, elements, links, active} = this
+    let {parent, links, active, animationClass} = this
 
     links.forEach((el, id) => {
       if(id === 0){
@@ -89,7 +95,7 @@ class Sortable {
 
     window.addEventListener('load', () => {
       this._filterElements()
-      parent.classList.add('fadeIn')
+      parent.classList.add(animationClass['init'])
     })
 
     this.resize()
@@ -106,22 +112,22 @@ class Sortable {
   }
 
   _filterElements(){
-    let {elements, dataLink} = this
-    new Promise((resolve, reject) => {
+    let {elements, dataLink, animationClass} = this
+    new Promise(resolve => {
       resolve(
         this.activeElements = elements.filter(el => {
           if(dataLink === 'all') {
-            el.classList.remove('fadeOut')
-            el.classList.add('fadeIn')
+            el.classList.remove(animationClass['out'])
+            el.classList.add(animationClass['in'])
             return true
           } else {
             if(el.dataset.sjsel !== dataLink) {
-              el.classList.remove('fadeIn')
-              el.classList.add('fadeOut')
+              el.classList.remove(animationClass['in'])
+              el.classList.add(animationClass['out'])
               return false
             } else {
-              el.classList.remove('fadeOut')
-              el.classList.add('fadeIn')
+              el.classList.remove(animationClass['out'])
+              el.classList.add(animationClass['in'])
               return true
             }
           }
@@ -143,7 +149,7 @@ class Sortable {
   }
   _columnsCount(obj){
     let {winWidth} = this
-    return Object.entries(obj).reduce((acc, val, id)=>{
+    return Object.entries(obj).reduce((acc, val)=>{
       return winWidth > val[0] && val[0] >= Math.max(acc['width'])
         ? { width: val[0], columns: val[1]['columns'] }
         : acc
