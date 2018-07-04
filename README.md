@@ -21,8 +21,8 @@ Put the script at the bottom of your markup:
 ```
 
 ### Usage
-1. Create links (a) that have the attribute `data-sortablejs` with an identification value corresponding to a family (ex: food, development, etc.).
-2. Wrap your items (div, a, img, span, li etc.) with an item element (div, ul etc.) that have the attribute `data-sortablejs` with an identification value corresponding to his family.
+1. Create links (a) that have the attribute `data-sjslink` with an identification value corresponding to a family (ex: food, development, etc.).
+2. Wrap your items (div, a, img, span, li etc.) with an item element (div, ul etc.) that have the attribute `data-sjsel` with an identification value corresponding to his family.
 3. Wrap your items (div, a, img, span, li etc.) with a container element (div, ul etc.) that have the attribute `id="sortable"`.
 
 
@@ -30,12 +30,12 @@ Put the script at the bottom of your markup:
 <!-- 1st step -->
 <ul>
     <li>
-        <a data-sortablejs="food">
+        <a data-sjslink="food">
             [...]
         </a>
     </li>
     <li>
-        <a data-sortablejs="development">
+        <a data-sjslink="development">
             [...]
         </a>
     </li>
@@ -45,14 +45,14 @@ Put the script at the bottom of your markup:
 <div id="sortable">
 
     <!-- 2nd step -->
-    <div data-sortablejs="food"> [...] </div>
-    <div data-sortablejs="development"> [...] </div>
-    <div data-sortablejs="development"> [...] </div>
+    <div data-sjsel="food"> [...] </div>
+    <div data-sjsel="development"> [...] </div>
+    <div data-sjsel="development"> [...] </div>
 </div>
 ```
-**NOTE:** The 2nd step is optional if your items don't have "transition" css property, because SortableJs apply "transition" and "transform" style for items that have `data-sortablejs` attribute.
+**NOTE:** The 2nd step is optional if your items don't have "transition" css property, because SortableJs apply "transition" and "transform" style for items that have `data-sjsel` attribute.
 <br>
-**WARNING:** If you skip the 2nd step, don't forget to add `data-sortablejs` attribute to your items.
+**WARNING:** If you skip the 2nd step, don't forget to add `data-sjsel` attribute to your items.
 
 Call the plugin function and it's work !
 
