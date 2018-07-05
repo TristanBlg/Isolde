@@ -4,6 +4,7 @@
   animation-fill-mode: forwards;
   animation-duration: .2s;
   opacity: 0;
+  transition: height .2s ease-out;
 }
 [data-sjsel]{
   opacity: 0;
