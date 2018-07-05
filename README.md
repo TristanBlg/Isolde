@@ -50,9 +50,6 @@ Put the script at the bottom of your markup:
     <div data-sjsel="development"> [...] </div>
 </div>
 ```
-**NOTE:** The 2nd step is optional if your items don't have "transition" css property, because SortableJs apply "transition" and "transform" style for items that have `data-sjsel` attribute.
-<br>
-**WARNING:** If you skip the 2nd step, don't forget to add `data-sjsel` attribute to your items.
 
 Call the plugin function and it's work !
 
