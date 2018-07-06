@@ -31,14 +31,12 @@ class Sortable {
   }
 
   orderelements(){
-    console.log(this)
     let {parent, activeElements, columns, blocWidth, responsive, margin} = this
     let positionX       = 0
     let arrayRectHeight = []
 
     activeElements.forEach((el, id) => {
       let columnsHeight   = this._sumArrHeight(arrayRectHeight, columns)
-      arrayRectHeight.push(el.offsetHeight)
       let rectHeight      = (id - columns >= 0) ? (columnsHeight[id%columns] + (margin * Math.floor(id / columns))) : 0
       el.style.transform  = `translate3d(${positionX}px, ${rectHeight}px, 0)`
 
@@ -47,6 +45,8 @@ class Sortable {
       } else {
         positionX = positionX + blocWidth + margin
       }
+      
+      arrayRectHeight.push(el.offsetHeight)
     })
 
     let columnsMaxHeight    = this._sumArrHeight(arrayRectHeight, columns)
