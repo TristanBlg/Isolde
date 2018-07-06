@@ -17,7 +17,7 @@ Sortable is a javascript plugin allow you to reorganize elements from a "masonry
 Put the script and the stylesheet at the bottom of your markup:
 
 ```html
-<link rel="stylesheet" href="../src/sortable.css">
+<link rel="stylesheet" href="[YOUR_PATH]/sortable.css">
 <script src="[YOUR_PATH]/sortablejs.js"></script>
 ```
 
@@ -31,14 +31,10 @@ Put the script and the stylesheet at the bottom of your markup:
 <!-- 1st step -->
 <ul>
     <li>
-        <a data-sjslink="food">
-            [...]
-        </a>
+        <a data-sjslink="food"> [...] </a>
     </li>
     <li>
-        <a data-sjslink="development">
-            [...]
-        </a>
+        <a data-sjslink="development"> [...] </a>
     </li>
 </ul>
 
