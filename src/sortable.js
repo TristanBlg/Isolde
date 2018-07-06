@@ -14,11 +14,6 @@ class Sortable {
       0: {
         columns: 1
       }
-    },
-    animationClass = {
-      init: 'fadeIn',
-      in: 'fadeIn',
-      out: 'fadeOut'
     }
   } = {}) {
     this.parent           = parent
@@ -26,7 +21,6 @@ class Sortable {
     this.active           = active
     this.margin           = margin
     this.responsive       = responsive
-    this.animationClass   = animationClass
     this.elements         = Array.from(this.parent.children)
     this.activeElements   = this.elements
     this.columns          = 1
@@ -37,17 +31,16 @@ class Sortable {
   }
 
   orderelements(){
+    console.log(this)
     let {parent, activeElements, columns, blocWidth, responsive, margin} = this
     let positionX       = 0
     let arrayRectHeight = []
-    console.log(arrayRectHeight)
 
     activeElements.forEach((el, id) => {
-      let columnsHeight  = this._sumArrHeight(arrayRectHeight, columns)
+      let columnsHeight   = this._sumArrHeight(arrayRectHeight, columns)
       arrayRectHeight.push(el.offsetHeight)
       let rectHeight      = (id - columns >= 0) ? (columnsHeight[id%columns] + (margin * Math.floor(id / columns))) : 0
-      el.style.top        = `${rectHeight}px`
-      el.style.left       = `${positionX}px`
+      el.style.transform  = `translate3d(${positionX}px, ${rectHeight}px, 0)`
 
       if(positionX >= blocWidth * (columns - 1)) {
         positionX = 0
@@ -72,7 +65,7 @@ class Sortable {
   }
 
   init(){
-    let {parent, links, active, animationClass} = this
+    let {parent, links, active} = this
 
     links.forEach((el, id) => {
       if(id === 0){
@@ -88,7 +81,7 @@ class Sortable {
 
     window.addEventListener('load', () => {
       this._filterElements()
-      parent.classList.add(animationClass['init'])
+      parent.style.opacity = 1
     })
 
     this.resize()
@@ -99,13 +92,15 @@ class Sortable {
       clearTimeout(window.sortableResize)
       window.sortableResize = setTimeout(() => {
         this.winWidth = window.innerWidth
-        this._setBlocWidth()
-        this.orderelements()
+        this._setBlocWidth(()=>{
+          this.orderelements()
+        })
+        
       }, 500)
     })
   }
 
-  _setBlocWidth(){
+  _setBlocWidth(callback){
     let {parent, elements, margin, responsive} = this
 
     let columnsCount    = this._columnsCount(responsive)
@@ -116,23 +111,23 @@ class Sortable {
     elements.forEach(el=>{
       el.style.width = blocWidth+'px'
     })
+    if(callback){
+      callback()
+    }
   }
   _filterElements(){
-    let {elements, dataLink, animationClass} = this
+    let {elements, dataLink} = this
 
     this.activeElements = elements.filter(el => {
       if(dataLink === 'all') {
-        el.classList.remove(animationClass['out'])
-        el.classList.add(animationClass['in'])
+        el.style.opacity = 1
         return true
       } else {
         if(el.dataset.sjsel !== dataLink) {
-          el.classList.remove(animationClass['in'])
-          el.classList.add(animationClass['out'])
+          el.style.opacity = 0
           return false
         } else {
-          el.classList.remove(animationClass['out'])
-          el.classList.add(animationClass['in'])
+          el.style.opacity = 1
           return true
         }
       }
@@ -142,7 +137,7 @@ class Sortable {
   }
   _sumArrHeight(arr, col){
     return arr.reduce((acc, val, id)=>{
-      let cle = id%col;
+      let cle = id%col
       if(!acc[cle]){
         acc[cle] = 0
       }
