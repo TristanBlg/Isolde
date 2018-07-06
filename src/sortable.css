@@ -8,5 +8,5 @@
   position: absolute;
   top: 0;
   left: 0;
-  transition: all .2s ease-out;
+  transition: transform .2s ease-out, opacity .2s ease-out;
 }

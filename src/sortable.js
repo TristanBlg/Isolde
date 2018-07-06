@@ -61,7 +61,9 @@ class Sortable {
     links.forEach(el => {
       el.isEqualNode(element) ? el.classList.add(active) : el.classList.remove(active)
     })
-    this._filterElements()
+    this._filterElements(()=>{
+      this.orderelements()
+    })
   }
 
   init(){
@@ -80,7 +82,9 @@ class Sortable {
     this._setBlocWidth()
 
     window.addEventListener('load', () => {
-      this._filterElements()
+      this._filterElements(()=>{
+        this.orderelements()
+      })
       parent.style.opacity = 1
     })
 
@@ -103,10 +107,8 @@ class Sortable {
   _setBlocWidth(callback){
     let {parent, elements, margin, responsive} = this
 
-    let columnsCount    = this._columnsCount(responsive)
-    let columns         = this.columns = columnsCount['columns']
-    let parentWidth     = parent.clientWidth
-    let blocWidth       = this.blocWidth = (parentWidth - (margin * (columns - 1))) / columns
+    let columns         = this.columns = this._columnsCount(responsive)['columns']
+    let blocWidth       = this.blocWidth = (parent.clientWidth - (margin * (columns - 1))) / columns
 
     elements.forEach(el=>{
       el.style.width = blocWidth+'px'
@@ -115,7 +117,7 @@ class Sortable {
       callback()
     }
   }
-  _filterElements(){
+  _filterElements(callback){
     let {elements, dataLink} = this
 
     this.activeElements = elements.filter(el => {
@@ -133,7 +135,9 @@ class Sortable {
       }
     })
 
-    this.orderelements()
+    if(callback){
+      callback()
+    }
   }
   _sumArrHeight(arr, col){
     return arr.reduce((acc, val, id)=>{
