@@ -24,40 +24,35 @@ class Sortable {
     this.parent           = parent
     this.links            = Array.from(links)
     this.active           = active
+    this.margin           = margin
+    this.responsive       = responsive
+    this.animationClass   = animationClass
     this.elements         = Array.from(this.parent.children)
     this.activeElements   = this.elements
     this.columns          = 1
-    this.margin           = margin
-    this.responsive       = responsive
     this.dataLink         = 'all'
     this.winWidth         = window.innerWidth
-    this.animationClass   = animationClass
 
     this.init()
   }
 
   orderelements(){
-    let {parent, activeElements, responsive, margin} = this
-    let columnsCount    = this._columnsCount(responsive)
-    let columns         = this.columns = columnsCount['columns']
-    let parentWidth     = parent.clientWidth
-    let rectWidth       = (parentWidth - (margin * (columns - 1))) / columns
+    let {parent, activeElements, columns, blocWidth, responsive, margin} = this
     let positionX       = 0
     let arrayRectHeight = []
+    console.log(arrayRectHeight)
 
     activeElements.forEach((el, id) => {
-      el.style.width      = rectWidth+'px'
-
       let columnsHeight  = this._sumArrHeight(arrayRectHeight, columns)
       arrayRectHeight.push(el.offsetHeight)
       let rectHeight      = (id - columns >= 0) ? (columnsHeight[id%columns] + (margin * Math.floor(id / columns))) : 0
       el.style.top        = `${rectHeight}px`
       el.style.left       = `${positionX}px`
 
-      if(positionX >= rectWidth * (columns - 1)) {
+      if(positionX >= blocWidth * (columns - 1)) {
         positionX = 0
       } else {
-        positionX = positionX + rectWidth + margin
+        positionX = positionX + blocWidth + margin
       }
     })
 
@@ -89,6 +84,8 @@ class Sortable {
       })
     })
 
+    this._setBlocWidth()
+
     window.addEventListener('load', () => {
       this._filterElements()
       parent.classList.add(animationClass['init'])
@@ -102,11 +99,24 @@ class Sortable {
       clearTimeout(window.sortableResize)
       window.sortableResize = setTimeout(() => {
         this.winWidth = window.innerWidth
+        this._setBlocWidth()
         this.orderelements()
       }, 500)
     })
   }
 
+  _setBlocWidth(){
+    let {parent, elements, margin, responsive} = this
+
+    let columnsCount    = this._columnsCount(responsive)
+    let columns         = this.columns = columnsCount['columns']
+    let parentWidth     = parent.clientWidth
+    let blocWidth       = this.blocWidth = (parentWidth - (margin * (columns - 1))) / columns
+
+    elements.forEach(el=>{
+      el.style.width = blocWidth+'px'
+    })
+  }
   _filterElements(){
     let {elements, dataLink, animationClass} = this
 
