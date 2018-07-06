@@ -32,22 +32,17 @@ class Sortable {
 
   orderelements(){
     let {parent, activeElements, columns, blocWidth, responsive, margin} = this
-    let positionX       = 0
-    let arrayRectHeight = []
 
-    activeElements.forEach((el, id) => {
-      let columnsHeight   = this._sumArrHeight(arrayRectHeight, columns)
+    let arrayRectHeight   = activeElements.reduce((acc, el, id) => {
+      let columnsHeight   = this._sumArrHeight(acc, columns)
+      let positionX       = (id%columns) * (blocWidth + margin)
       let rectHeight      = (id - columns >= 0) ? (columnsHeight[id%columns] + (margin * Math.floor(id / columns))) : 0
+      
       el.style.transform  = `translate3d(${positionX}px, ${rectHeight}px, 0)`
 
-      if(positionX >= blocWidth * (columns - 1)) {
-        positionX = 0
-      } else {
-        positionX = positionX + blocWidth + margin
-      }
-      
-      arrayRectHeight.push(el.offsetHeight)
-    })
+      acc.push(el.offsetHeight)
+      return acc
+    }, [])
 
     let columnsMaxHeight    = this._sumArrHeight(arrayRectHeight, columns)
     let parentHeight        = Math.max(...columnsMaxHeight) + (margin * (Math.floor(activeElements.length / columns) - 1))
@@ -57,13 +52,18 @@ class Sortable {
   handleFilterClick(ev, element){
     ev.preventDefault()
     let {links, active} = this
-    this.dataLink       = element.dataset.sjslink
-    links.forEach(el => {
-      el.isEqualNode(element) ? el.classList.add(active) : el.classList.remove(active)
-    })
-    this._filterElements(()=>{
-      this.orderelements()
-    })
+
+    if(element.dataset.sjslink === this.dataLink){
+      return
+    } else {
+      this.dataLink = element.dataset.sjslink
+      links.forEach(el => {
+        el.isEqualNode(element) ? el.classList.add(active) : el.classList.remove(active)
+      })
+      this._filterElements(()=>{
+        this.orderelements()
+      })
+    }
   }
 
   init(){
@@ -99,7 +99,6 @@ class Sortable {
         this._setBlocWidth(()=>{
           this.orderelements()
         })
-        
       }, 500)
     })
   }
