@@ -45,29 +45,25 @@ class Sortable {
     let positionX       = 0
     let arrayRectHeight = []
 
-    new Promise(resolve => {
-      resolve(
-        activeElements.forEach((el, id) => {
-          el.style.width      = rectWidth+'px'
+    activeElements.forEach((el, id) => {
+      el.style.width      = rectWidth+'px'
 
-          let columnsHeight  = this._sumArrHeight(arrayRectHeight, columns)
-          arrayRectHeight.push(el.offsetHeight)
-          let rectHeight      = (id - columns >= 0) ? (columnsHeight[id%columns] + (margin * Math.floor(id / columns))) : 0
-          el.style.top        = `${rectHeight}px`
-          el.style.left       = `${positionX}px`
+      let columnsHeight  = this._sumArrHeight(arrayRectHeight, columns)
+      arrayRectHeight.push(el.offsetHeight)
+      let rectHeight      = (id - columns >= 0) ? (columnsHeight[id%columns] + (margin * Math.floor(id / columns))) : 0
+      el.style.top        = `${rectHeight}px`
+      el.style.left       = `${positionX}px`
 
-          if(positionX >= rectWidth * (columns - 1)) {
-            positionX = 0
-          } else {
-            positionX = positionX + rectWidth + margin
-          }
-        })
-      )
-    }).then(() => {
-      let columnsMaxHeight    = this._sumArrHeight(arrayRectHeight, columns)
-      let parentHeight        = Math.max(...columnsMaxHeight) + (margin * (Math.floor(activeElements.length / columns) - 1))
-      parent.style.height     = parentHeight+'px'
+      if(positionX >= rectWidth * (columns - 1)) {
+        positionX = 0
+      } else {
+        positionX = positionX + rectWidth + margin
+      }
     })
+
+    let columnsMaxHeight    = this._sumArrHeight(arrayRectHeight, columns)
+    let parentHeight        = Math.max(...columnsMaxHeight) + (margin * (Math.floor(activeElements.length / columns) - 1))
+    parent.style.height     = parentHeight+'px'
   }
 
   handleFilterClick(ev, element){
@@ -113,29 +109,26 @@ class Sortable {
 
   _filterElements(){
     let {elements, dataLink, animationClass} = this
-    new Promise(resolve => {
-      resolve(
-        this.activeElements = elements.filter(el => {
-          if(dataLink === 'all') {
-            el.classList.remove(animationClass['out'])
-            el.classList.add(animationClass['in'])
-            return true
-          } else {
-            if(el.dataset.sjsel !== dataLink) {
-              el.classList.remove(animationClass['in'])
-              el.classList.add(animationClass['out'])
-              return false
-            } else {
-              el.classList.remove(animationClass['out'])
-              el.classList.add(animationClass['in'])
-              return true
-            }
-          }
-        })
-      )
-    }).then(() => {
-      this.orderelements()
+
+    this.activeElements = elements.filter(el => {
+      if(dataLink === 'all') {
+        el.classList.remove(animationClass['out'])
+        el.classList.add(animationClass['in'])
+        return true
+      } else {
+        if(el.dataset.sjsel !== dataLink) {
+          el.classList.remove(animationClass['in'])
+          el.classList.add(animationClass['out'])
+          return false
+        } else {
+          el.classList.remove(animationClass['out'])
+          el.classList.add(animationClass['in'])
+          return true
+        }
+      }
     })
+
+    this.orderelements()
   }
   _sumArrHeight(arr, col){
     return arr.reduce((acc, val, id)=>{
