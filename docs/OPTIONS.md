@@ -2,7 +2,7 @@
 
 ## Selectors
 ### Parent
-```js
+```html
 <script type="text/javascript">
     var sortable = new Sortable({
         parent: [...]
@@ -15,7 +15,7 @@ Default: `document.querySelector('#sortable')`
 **NOTE:** Value expect is a nodeElement
 
 ### Links
-```js
+```html
 <script type="text/javascript">
     var sortable = new Sortable({
         links  = [...]
@@ -29,7 +29,7 @@ Default: `document.querySelectorAll('a[data-sortablejs]')`
 
 ## Others
 ### Responsive (column, etc.)
-```js
+```html
 <script type="text/javascript">
     var sortable = new Sortable({
         links: [...]
@@ -55,7 +55,7 @@ Default:
 
 Example:
 
-```js
+```html
 <script type="text/javascript">
     var sortable = new Sortable({
         responsive  = {
@@ -74,7 +74,7 @@ Example:
 ```
 
 ### Margin
-```js
+```html
 <script type="text/javascript">
     var sortable = new Sortable({
         margin  = [...]
@@ -87,7 +87,7 @@ Default: `20`
 **NOTE:** Value is in pixel
 
 ### Active className
-```js
+```html
 <script type="text/javascript">
     var sortable = new Sortable({
         active  = [...]

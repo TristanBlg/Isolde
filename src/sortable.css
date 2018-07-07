@@ -1,6 +1,7 @@
 #sortable{
   position: relative;
   opacity: 0;
+  overflow: hidden;
   transition: height .2s ease-out, opacity .2s ease-out .2s;
 }
 [data-sjsel]{
