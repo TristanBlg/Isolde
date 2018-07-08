@@ -46,7 +46,7 @@ class Sortable {
 
     let columnsMaxHeight    = this._sumArrHeight(arrayRectHeight, columns)
     let parentHeight        = Math.max(...columnsMaxHeight) + (margin * (Math.floor(activeElements.length / columns) - 1))
-    parent.style.height     = parentHeight+'px'
+    parent.style.height     = `${parentHeight}px`
   }
 
   handleFilterClick(ev, element){
@@ -110,7 +110,7 @@ class Sortable {
     let blocWidth       = this.blocWidth = (parent.clientWidth - (margin * (columns - 1))) / columns
 
     elements.forEach(el=>{
-      el.style.width = blocWidth+'px'
+      el.style.width = `${blocWidth}px`
     })
     if(callback){
       callback()
