@@ -1,4 +1,4 @@
-#sortable{
+.sjs-default{
   position: relative;
   opacity: 0;
   transition: height .2s ease-out, opacity .2s ease-out .2s;

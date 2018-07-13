@@ -1,6 +1,6 @@
 class Sortable {
   constructor({
-    parent        = document.querySelector('#sortable'),
+    parent,
     links         = document.querySelectorAll('[data-sjslink]'),
     active        = 'is-active',
     margin        = 20,
@@ -204,4 +204,7 @@ class Sortable {
     }
     requestAnimationFrame(animation)
   }
+}
+HTMLElement.prototype.sortablejs = HTMLElement.prototype.sortablejs || function(arguments){
+  return new Sortable({parent: this, ...arguments})
 }

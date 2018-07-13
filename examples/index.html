@@ -37,7 +37,7 @@
             </a>
           </li>
         </ul>
-        <div id="sortable">
+        <div id="sortable" class="sjs-default">
           <div data-sjsel="flatty">
             <div class="card">
               <img class="card__picture" src="./images/item-1.jpg" alt="">
@@ -169,7 +169,7 @@
     </div>
   </footer>
   <script type="text/javascript">
-    var sortable = new Sortable();
+    document.querySelector('#sortable').sortablejs()
   </script>
 </body>
 </html>
