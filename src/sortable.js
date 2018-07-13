@@ -1,10 +1,10 @@
 class Sortable {
   constructor({
-    parent      = document.querySelector('#sortable'),
-    links       = document.querySelectorAll('[data-sjslink]'),
-    active      = 'is-active',
-    margin      = 20,
-    responsive  = {
+    parent        = document.querySelector('#sortable'),
+    links         = document.querySelectorAll('[data-sjslink]'),
+    active        = 'is-active',
+    margin        = 20,
+    responsive    = {
       980: {
         columns: 3
       },
@@ -14,6 +14,10 @@ class Sortable {
       0: {
         columns: 1
       }
+    },
+    fadeDuration  = {
+      in: 300,
+      out: 0
     }
   } = {}) {
     this.parent           = parent
@@ -21,6 +25,7 @@ class Sortable {
     this.active           = active
     this.margin           = margin
     this.responsive       = responsive
+    this.fadeDuration     = fadeDuration
     this.elements         = Array.from(this.parent.children)
     this.activeElements   = this.elements
     this.columns          = 1
@@ -117,18 +122,18 @@ class Sortable {
     }
   }
   _filterElements(callback){
-    let {elements, dataLink} = this
+    let {elements, dataLink, fadeDuration} = this
 
     this.activeElements = elements.filter(el => {
       if(dataLink === 'all') {
-        this._fadeIn(el)
+        this._fadeIn(el, fadeDuration.in)
         return true
       } else {
         if(el.dataset.sjsel !== dataLink) {
-          this._fadeOut(el, 0)
+          this._fadeOut(el, fadeDuration.out)
           return false
         } else {
-          this._fadeIn(el)
+          this._fadeIn(el, fadeDuration.in)
           return true
         }
       }
