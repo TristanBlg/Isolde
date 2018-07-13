@@ -121,14 +121,14 @@ class Sortable {
 
     this.activeElements = elements.filter(el => {
       if(dataLink === 'all') {
-        el.style.opacity = 1
+        this._fadeIn(el)
         return true
       } else {
         if(el.dataset.sjsel !== dataLink) {
-          el.style.opacity = 0
+          this._fadeOut(el)
           return false
         } else {
-          el.style.opacity = 1
+          this._fadeIn(el)
           return true
         }
       }
@@ -155,5 +155,43 @@ class Sortable {
         ? { width: val[0], columns: val[1]['columns'] }
         : acc
     }, {width: 0, columns: 4})
+  }
+  _fadeIn(el, callback){
+    let opacity = parseFloat(window.getComputedStyle(el, null).getPropertyValue("opacity"))
+    console.log(opacity)
+    
+    el.style.display = 'block'
+
+    function animation(){
+      opacity += 0.05
+      el.style.opacity = opacity
+
+      if(opacity < 1){
+        requestAnimationFrame(animation)
+      } else {
+        if(callback){
+          callback()
+        }
+      }
+    }
+    requestAnimationFrame(animation)
+  }
+  _fadeOut(el, callback){
+    let opacity = parseFloat(window.getComputedStyle(el, null).getPropertyValue("opacity"))
+
+    function animation(){
+      opacity -= 0.05
+      el.style.opacity = opacity
+
+      if(opacity > 0){
+        requestAnimationFrame(animation)
+      } else {
+        el.style.display = 'none'
+        if(callback){
+          callback()
+        }
+      }
+    }
+    requestAnimationFrame(animation)
   }
 }
