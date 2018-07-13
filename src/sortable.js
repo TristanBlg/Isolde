@@ -125,7 +125,7 @@ class Sortable {
         return true
       } else {
         if(el.dataset.sjsel !== dataLink) {
-          this._fadeOut(el)
+          this._fadeOut(el, 0)
           return false
         } else {
           this._fadeIn(el)
@@ -156,19 +156,21 @@ class Sortable {
         : acc
     }, {width: 0, columns: 4})
   }
-  _fadeIn(el, callback){
-    let opacity = parseFloat(window.getComputedStyle(el, null).getPropertyValue("opacity"))
-    console.log(opacity)
+  _fadeIn(el, duration = 300, callback){
+    let opacity   = parseFloat(window.getComputedStyle(el, null).getPropertyValue("opacity")),
+        interval  = 16,
+        gap       = interval / duration
     
     el.style.display = 'block'
 
     function animation(){
-      opacity += 0.05
-      el.style.opacity = opacity
+      opacity += gap
 
-      if(opacity < 1){
+      if(opacity <= 1){
+        el.style.opacity = opacity
         requestAnimationFrame(animation)
       } else {
+        el.style.opacity = 1
         if(callback){
           callback()
         }
@@ -176,16 +178,19 @@ class Sortable {
     }
     requestAnimationFrame(animation)
   }
-  _fadeOut(el, callback){
-    let opacity = parseFloat(window.getComputedStyle(el, null).getPropertyValue("opacity"))
+  _fadeOut(el, duration = 300, callback){
+    let opacity   = parseFloat(window.getComputedStyle(el, null).getPropertyValue("opacity")),
+        interval  = 50,
+        gap       = duration ? (interval / duration) : 1
 
     function animation(){
-      opacity -= 0.05
-      el.style.opacity = opacity
+      opacity -= gap
 
-      if(opacity > 0){
+      if(opacity >= 0){
+        el.style.opacity = opacity
         requestAnimationFrame(animation)
       } else {
+        el.style.opacity = 0
         el.style.display = 'none'
         if(callback){
           callback()
