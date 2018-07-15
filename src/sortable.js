@@ -71,6 +71,18 @@ class Sortable {
     }
   }
 
+  resize(){
+    window.addEventListener('resize', () => {
+      clearTimeout(window.sortableResize)
+      window.sortableResize = setTimeout(() => {
+        this.winWidth = window.innerWidth
+        this._setBlocWidth(()=>{
+          this.orderelements()
+        })
+      }, 500)
+    })
+  }
+
   init(){
     let {parent, links, active} = this
 
@@ -94,18 +106,6 @@ class Sortable {
     })
 
     this.resize()
-  }
-
-  resize(){
-    window.addEventListener('resize', () => {
-      clearTimeout(window.sortableResize)
-      window.sortableResize = setTimeout(() => {
-        this.winWidth = window.innerWidth
-        this._setBlocWidth(()=>{
-          this.orderelements()
-        })
-      }, 500)
-    })
   }
 
   _setBlocWidth(callback){
@@ -185,7 +185,7 @@ class Sortable {
   }
   _fadeOut(el, duration = 300, callback){
     let opacity   = parseFloat(window.getComputedStyle(el, null).getPropertyValue("opacity")),
-        interval  = 50,
+        interval  = 16,
         gap       = duration ? (interval / duration) : 1
 
     function animation(){

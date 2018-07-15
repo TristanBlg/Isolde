@@ -14,7 +14,6 @@
     "url": "https://github.com/TristanBlg/sortableJs/issues"
   },
   "homepage": "https://github.com/TristanBlg/sortableJs#readme",
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {}
 }
