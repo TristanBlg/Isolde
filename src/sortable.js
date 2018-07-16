@@ -205,6 +205,6 @@ class Sortable {
     requestAnimationFrame(animation)
   }
 }
-HTMLElement.prototype.sortablejs = HTMLElement.prototype.sortablejs || function(arguments){
-  return new Sortable({parent: this, ...arguments})
+HTMLElement.prototype.sortablejs = HTMLElement.prototype.sortablejs || function(params){
+  return new Sortable({parent: this, ...params})
 }
