@@ -15,7 +15,7 @@ gulp.task('browserSync', () => {
   })
 });
 
-gulp.task('js:build', function(){
+gulp.task('js:build', () => {
   return gulp.src('src/sortable.js')
     .pipe(babel())
     .pipe(uglify())
@@ -27,7 +27,7 @@ gulp.task('js:build', function(){
     //EXAMPLES
     .pipe(gulp.dest('examples/js'))
 });
-gulp.task('css:build', function(){
+gulp.task('css:build', () => {
   let plugins = [
     autoprefixer({browsers: ['last 1 version']}),
     cssnano()
@@ -41,13 +41,13 @@ gulp.task('css:build', function(){
     //EXAMPLES
     .pipe(gulp.dest('examples/css'))
 });
-gulp.task('js', function(){
+gulp.task('js', () => {
   return gulp.src('src/sortable.js')
     .pipe(browserSync.reload({
       stream: true
     }))
 });
-gulp.task('css', function(){
+gulp.task('css', () => {
   return gulp.src('src/sortable.css')
     .pipe(browserSync.reload({
       stream: true
