@@ -5,6 +5,15 @@ const cssnano       = require('cssnano');
 const concat        = require('gulp-concat');
 const babel         = require('gulp-babel');
 const uglify        = require('gulp-uglify');
+const browserSync   = require('browser-sync');
+
+gulp.task('browserSync', () => {
+  browserSync({
+    server: {
+      baseDir: 'src'
+    },
+  })
+});
 
 gulp.task('js:build', function(){
   return gulp.src('src/sortable.js')
@@ -34,14 +43,23 @@ gulp.task('css:build', function(){
 });
 gulp.task('js', function(){
   return gulp.src('src/sortable.js')
-    .pipe(livereload());
+    .pipe(browserSync.reload({
+      stream: true
+    }))
 });
 gulp.task('css', function(){
   return gulp.src('src/sortable.css')
+    .pipe(browserSync.reload({
+      stream: true
+    }))
 });
+
+gulp.task('watch', ['browserSync', 'js', 'css'], () => {
+  gulp.watch('src/sortable.css', ['css']);
+  gulp.watch('src/sortable.js', ['js']);
+  gulp.watch('src/index.html', browserSync.reload);
+})
 
 gulp.task('build', ['css:build', 'js:build']);
 
-gulp.task('watch', function(){
-  gulp.watch();
-});
+gulp.task('default', ['watch']);

@@ -3,7 +3,9 @@
   "version": "0.2.0",
   "description": "",
   "main": "index.html",
-  "scripts": {},
+  "scripts": {
+    "start": "gulp"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TristanBlg/sortableJs.git"
@@ -18,6 +20,7 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-0": "^6.24.1",
+    "browser-sync": "^2.24.5",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-babel": "^7.0.1",
