@@ -12,13 +12,11 @@ Sortable is a javascript plugin allow you to reorganize elements from a "masonry
 ### Load
 **Static HTML**
 
-> The next major release will use a build tools.
-
 Put the script and the stylesheet at the bottom of your markup:
 
 ```html
-<link rel="stylesheet" href="[__YOUR_PATH__]/sortable.css">
-<script src="[__YOUR_PATH__]/sortablejs.js"></script>
+<link rel="stylesheet" href="[__YOUR_PATH__]/sortable.min.css">
+<script src="[__YOUR_PATH__]/sortable.min.js"></script>
 ```
 
 ### Usage
