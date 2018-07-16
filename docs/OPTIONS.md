@@ -8,7 +8,7 @@
 </script>
 ```
 
-Exemple: 
+Example: 
 
 ```html
 <div id="sortable"> [...] </div>
