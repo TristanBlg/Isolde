@@ -29,7 +29,7 @@ Example:
 </script>
 ```
 
-Default: `document.querySelectorAll('a[data-sortablejs]')`
+Default: `document.querySelectorAll('[data-sjslink]')`
 
 **NOTE:** Value expect is a nodeList or an Array
 
