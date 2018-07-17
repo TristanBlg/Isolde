@@ -47,12 +47,14 @@ hr{
   width: 100%;
   margin: 10px 0;
 }
-/*::selection{
+::selection{
   background: var(--main-bg-color);
+  color: #fff;
 }
 ::-moz-selection{
   background: var(--main-bg-color);
-}*/
+  color: #fff;
+}
 
 .container{
   width: 100%;

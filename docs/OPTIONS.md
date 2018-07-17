@@ -2,38 +2,44 @@
 
 ## Selectors
 ### Parent
-```js
+```html
 <script type="text/javascript">
-    var sortable = new Sortable({
-        parent: [...]
-    });
+  [__PARENT__].sortablejs();
 </script>
 ```
 
-Default: `document.querySelector('#sortable')`
+Example: 
 
-**NOTE:** Value expect is a nodeElement
+```html
+<div id="sortable"> [...] </div>
+
+<script type="text/javascript">
+  document.querySelector('#sortable').sortablejs();
+</script>
+```
+
+**NOTE:** Value expect is a HTMLElement
 
 ### Links
-```js
+```html
 <script type="text/javascript">
-    var sortable = new Sortable({
-        links  = [...]
-    });
+  [__PARENT__].sortablejs({
+    links: [...]
+  });
 </script>
 ```
 
-Default: `document.querySelectorAll('a[data-sortablejs]')`
+Default: `document.querySelectorAll('[data-sjslink]')`
 
 **NOTE:** Value expect is a nodeList or an Array
 
 ## Others
 ### Responsive (column, etc.)
-```js
+```html
 <script type="text/javascript">
-    var sortable = new Sortable({
-        links: [...]
-    });
+  [__PARENT__].sortablejs({
+    responsive: [...]
+  });
 </script>
 ```
 
@@ -41,44 +47,44 @@ Default:
 
 ```js
 {
-    980: {
-        columns: 3
-    },
-    480: {
-        columns: 2
-    },
-    0: {
-        columns: 1
-    }
+  980: {
+    columns: 3
+  },
+  480: {
+    columns: 2
+  },
+  0: {
+    columns: 1
+  }
 }
 ```
 
 Example:
 
-```js
+```html
 <script type="text/javascript">
-    var sortable = new Sortable({
-        responsive  = {
-            1170: {
-                columns: 4
-            },
-            768: {
-                columns: 3
-            },
-            0: {
-                columns: 2
-            }
-        }
-    });
+  [__PARENT__].sortablejs({
+    responsive: {
+      1170: {
+        columns: 4
+      },
+      768: {
+        columns: 3
+      },
+      0: {
+        columns: 2
+      }
+    }
+  });
 </script>
 ```
 
 ### Margin
-```js
+```html
 <script type="text/javascript">
-    var sortable = new Sortable({
-        margin  = [...]
-    });
+  [__PARENT__].sortablejs({
+    margin: [...]
+  });
 </script>
 ```
 
@@ -87,11 +93,11 @@ Default: `20`
 **NOTE:** Value is in pixel
 
 ### Active className
-```js
+```html
 <script type="text/javascript">
-    var sortable = new Sortable({
-        active  = [...]
-    });
+  [__PARENT__].sortablejs({
+    active: [...]
+  });
 </script>
 ```
 

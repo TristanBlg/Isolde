@@ -1,64 +1,57 @@
 # SortableJs
 
-> Project is WIP, it's not advisable to use it for professionnal project.
-
 Sortable is a javascript plugin allow you to reorganize elements from a "masonry" grid.
+
+Demo: [https://sortablejs.tristanboulanger.fr/](https://sortablejs.tristanboulanger.fr/)
+
 ## Quick start
-> ### Install
-> This package cannot be installed with npm/yarn yet.
+### Install
+> This package cannot be install with npm/yarn yet.
 > <br>
-> Waiting for a stable version.
+> Waiting for a clean review.
 
 ### Load
 **Static HTML**
 
-> The next major version expect to use a css file for animations 
+Put the script and the stylesheet at the bottom of your markup:
 
-Put the script at the bottom of your markup:
-
-```js
-<script src="[YOUR_PATH]/sortablejs.min.js"></script>
+```html
+<link rel="stylesheet" href="[__YOUR_PATH__]/sortable.min.css">
+<script src="[__YOUR_PATH__]/sortable.min.js"></script>
 ```
 
 ### Usage
-1. Create links (a) that have the attribute `data-sortablejs` with an identification value corresponding to a family (ex: food, development, red, etc.).
-2. Wrap your items (div, a, img, span, li etc.) with an item element (div, ul etc.) that have the attribute `data-sortablejs` with an identification value corresponding to his family.
-3. Wrap your items (div, a, img, span, li etc.) with a container element (div, ul etc.) that have the attribute `id="sortable"`.
+1. Create links (a, div, etc.) that have the attribute `data-sjslink` with an identification value corresponding to a family (ex: food, development, etc.).
+2. Wrap your items with blocks (li, div, etc.) that have the attribute `data-sjsel` with an identification value corresponding to their family.
+3. Wrap your blocks with a container (ul, div, etc.) that have a className `class="sjs-default"` and an id `id="sortable"`.
 
 
 ```html
 <!-- 1st step -->
 <ul>
-    <li>
-        <a data-sortablejs="food">
-            [...]
-        </a>
-    </li>
-    <li>
-        <a data-sortablejs="development">
-            [...]
-        </a>
-    </li>
+  <li>
+    <a data-sjslink="food"> [...] </a>
+  </li>
+  <li>
+    <a data-sjslink="development"> [...] </a>
+  </li>
 </ul>
 
 <!-- 3st step -->
-<div id="sortable">
+<div id="sortable" class="sjs-default">
 
-    <!-- 2nd step -->
-    <div data-sortablejs="food"> [...] </div>
-    <div data-sortablejs="development"> [...] </div>
-    <div data-sortablejs="development"> [...] </div>
+  <!-- 2nd step -->
+  <div data-sjsel="food"> [...] </div>
+  <div data-sjsel="development"> [...] </div>
+  <div data-sjsel="development"> [...] </div>
 </div>
 ```
-**NOTE:** The 2nd step is optional if your items don't have "transition" css property, because SortableJs apply "transition" and "transform" style for items that have `data-sortablejs` attribute.
-<br>
-**WARNING:** If you skip the 2nd step, don't forget to add `data-sortablejs` attribute to your items.
 
-Call the plugin function and it's work !
+Call the plugin and it works !
 
-```js
+```html
 <script type="text/javascript">
-    var sortable = new Sortable();
+  document.querySelector('#sortable').sortablejs()
 </script>
 ```
 
