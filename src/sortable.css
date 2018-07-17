@@ -1,5 +1,7 @@
 .sjs-default{
   position: relative;
+  padding: 0;
+  margin: 0;
   opacity: 0;
   transition: height .2s ease-out, opacity .2s ease-out .2s;
 }
