@@ -47,14 +47,6 @@ hr{
   width: 100%;
   margin: 10px 0;
 }
-::selection{
-  background: var(--main-bg-color);
-  color: #fff;
-}
-::-moz-selection{
-  background: var(--main-bg-color);
-  color: #fff;
-}
 
 .container{
   width: 100%;
@@ -107,15 +99,33 @@ hr{
   background: var(--main-bg-color);
   height: 160px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .header__title{
-  margin: auto;
+  margin: 0 0 10px;
   font-weight: 300;
   font-size: 3.2rem;
   color: #fff;
 }
 .header__title--high{
   font-weight: 600;
+}
+.header__btn{
+  display: block;
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: var(--main-bg-color);
+  background: rgba(255, 255, 255, 1);
+  padding: 8px 20px;
+  border-radius: 3px;
+  transform: scale(1);
+  transition: all .1s ease-in;
+}
+.header__btn:active{
+  background: rgba(255, 255, 255, .8);
+  transform: scale(0.9);
 }
 
 .sortable__nav{
