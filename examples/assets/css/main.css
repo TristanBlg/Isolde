@@ -112,20 +112,28 @@ hr{
 .header__title--high{
   font-weight: 600;
 }
-.header__btn{
-  display: block;
+.header__links.links{
+  display: flex;
+}
+.links__btn{
+  display: flex;
+  align-items: center;
   font-weight: 400;
   font-size: 1.4rem;
-  color: var(--main-bg-color);
-  background: rgba(255, 255, 255, 1);
   padding: 8px 20px;
-  border-radius: 3px;
-  transform: scale(1);
-  transition: all .1s ease-in;
+  border: 1px solid #fff;
 }
-.header__btn:active{
-  background: rgba(255, 255, 255, .8);
-  transform: scale(0.9);
+.links__btn--download{
+  color: var(--main-bg-color);
+  background: #fff;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.links__btn--github{
+  color: #fff;
+  border-left: none;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 
 .sortable__nav{
