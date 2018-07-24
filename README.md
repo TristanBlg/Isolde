@@ -1,6 +1,6 @@
 # SortableJs
 
-Sortable is a javascript plugin allow you to reorganize elements from a "masonry" grid.
+SortableJs is a lightweight, flexible, and responsive javascript plugin allow you to filter elements from a "masonry" grid.
 
 Demo: [https://sortablejs.tristanboulanger.fr/](https://sortablejs.tristanboulanger.fr/)
 
