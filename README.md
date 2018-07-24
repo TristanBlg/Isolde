@@ -13,10 +13,15 @@ Demo: [https://sortablejs.tristanboulanger.fr/](https://sortablejs.tristanboulan
 ### Load
 **Static HTML**
 
-Put the script and the stylesheet at the bottom of your markup:
+Put the required stylesheet at the top of your markup:
 
 ```html
 <link rel="stylesheet" href="[__YOUR_PATH__]/sortable.min.css">
+```
+
+Put the script at the bottom of your markup:
+
+```html
 <script src="[__YOUR_PATH__]/sortable.min.js"></script>
 ```
 
