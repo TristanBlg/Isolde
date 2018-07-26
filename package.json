@@ -1,8 +1,8 @@
 {
   "name": "SortableJs",
   "version": "1.1.0",
-  "description": "",
-  "main": "index.html",
+  "description": "A javascript plugin to filter elements from a masonry grid.",
+  "main": "./dist/sortable.min.js",
   "scripts": {
     "start": "gulp",
     "build": "gulp dist",
@@ -12,7 +12,11 @@
     "type": "git",
     "url": "git+https://github.com/TristanBlg/sortableJs.git"
   },
-  "author": "Tristan BOULANGER",
+  "author": {
+    "name": "Tristan BOULANGER",
+    "email": "contact@tristanboulanger.fr",
+    "url": "https://www.tristanboulanger.fr/"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/TristanBlg/sortableJs/issues"
