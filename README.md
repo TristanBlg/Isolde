@@ -61,7 +61,7 @@ Call the plugin and it works !
 ```
 
 ## Documentation
-[OPTIONS.md](https://github.com/TristanBlg/sortableJs/blob/master/docs/OPTIONS.md).
+[Doc](https://github.com/TristanBlg/sortableJs/blob/master/docs/OPTIONS.md)
 
 ## License
 [MIT](https://github.com/TristanBlg/sortableJs/blob/master/LICENSE.md)
