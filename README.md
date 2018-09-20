@@ -1,3 +1,5 @@
+[![npm: v1.1.2](https://img.shields.io/badge/npm-v1.1.2-blue.svg)](https://www.npmjs.com/package/isolde)
+
 # Isolde
 
 Isolde is a lightweight, flexible, and responsive javascript plugin allow you to filter elements from a "masonry" grid.
@@ -24,7 +26,7 @@ Put the script at the bottom of your markup:
 ```html
 <script type="module">
   import isolde from '[__YOUR_PATH__]/isolde.min.js';
-  const pkt = new isolde();
+  const isoldejs = new isolde();
 </script>
 ```
 
