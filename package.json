@@ -5,7 +5,7 @@
   "main": "./dist/sortable.min.js",
   "scripts": {
     "start": "gulp",
-    "build": "gulp dist",
+    "build": "gulp build",
     "examples": "gulp examples"
   },
   "repository": {
@@ -34,8 +34,7 @@
     "gulp-cssnano": "2.1.3",
     "gulp-postcss": "7.0.1",
     "gulp-rename": "1.3.0",
-    "gulp-uglify": "3.0.0",
-    "gulp-zip": "4.1.0"
+    "gulp-uglify": "3.0.0"
   },
   "dependencies": {}
 }
