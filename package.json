@@ -5,8 +5,7 @@
   "main": "./dist/sortable.min.js",
   "scripts": {
     "start": "gulp",
-    "build": "gulp build",
-    "examples": "gulp examples"
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
