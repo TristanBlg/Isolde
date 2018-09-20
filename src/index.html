@@ -5,15 +5,15 @@
   <meta name="theme-color" content="#ffffff"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv=“X-UA-Compatible” content=“IE=Edge”>
-  <title>SortableJs - Masonry plugin</title>
+  <title>Pronkt - Masonry plugin</title>
   <link rel="stylesheet" href="./assets/css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Hind:400,600|Open+Sans:300,600" rel="stylesheet">
-  <link rel="stylesheet" href="./sortable.css">
+  <link rel="stylesheet" href="./pronkt.css">
 </head>
 <body>
   <header class="header">
     <h1 class="header__title">
-      Sortable<span class="header__title--high">Js</span>  
+      Pron<span class="header__title--high">kt</span>  
     </h1>
   </header>
   <main class="sortable">
@@ -21,23 +21,23 @@
       <div class="wrapper">
         <ul class="sortable__nav nav">
           <li>
-            <a data-sjslink="all" class="nav__link">
+            <a data-pronkt-link="all" class="nav__link">
               All
             </a>
           </li>
           <li>
-            <a data-sjslink="flatty" class="nav__link">
+            <a data-pronkt-link="flatty" class="nav__link">
               Flatty
             </a>
           </li>
           <li>
-            <a data-sjslink="funny" class="nav__link">
+            <a data-pronkt-link="funny" class="nav__link">
               Funny
             </a>
           </li>
         </ul>
-        <div id="sjs" class="sjs-default">
-          <div data-sjsel="flatty">
+        <div id="pronkt" class="pronkt-default">
+          <div data-pronkt-el="flatty">
             <div class="card">
               <img class="card__picture" src="./assets/images/item-1.jpg" alt="">
               <div class="card-infos">
@@ -48,7 +48,7 @@
               </div>
             </div>
           </div>
-          <div data-sjsel="flatty">
+          <div data-pronkt-el="flatty">
             <div class="card">
               <img class="card__picture" src="./assets/images/item-2.jpg" alt="">
               <div class="card-infos">
@@ -59,7 +59,7 @@
               </div>
             </div>
           </div>
-          <div data-sjsel="funny">
+          <div data-pronkt-el="funny">
             <div class="card">
               <img class="card__picture" src="./assets/images/item-3.jpg" alt="">
               <div class="card-infos">
@@ -70,7 +70,7 @@
               </div>
             </div>
           </div>
-          <div data-sjsel="flatty">
+          <div data-pronkt-el="flatty">
             <div class="card">
               <img class="card__picture" src="./assets/images/item-4.jpg" alt="">
               <div class="card-infos">
@@ -81,7 +81,7 @@
               </div>
             </div>
           </div>
-          <div data-sjsel="flatty">
+          <div data-pronkt-el="flatty">
             <div class="card">
               <img class="card__picture" src="./assets/images/item-5.jpg" alt="">
               <div class="card-infos">
@@ -92,7 +92,7 @@
               </div>
             </div>
           </div>
-          <div data-sjsel="funny">
+          <div data-pronkt-el="funny">
             <div class="card">
               <img class="card__picture" src="./assets/images/item-6.jpg" alt="">
               <div class="card-infos">
@@ -103,7 +103,7 @@
               </div>
             </div>
           </div>
-          <div data-sjsel="flatty">
+          <div data-pronkt-el="flatty">
             <div class="card">
               <img class="card__picture" src="./assets/images/item-7.jpg" alt="">
               <div class="card-infos">
@@ -114,7 +114,7 @@
               </div>
             </div>
           </div>
-          <div data-sjsel="flatty">
+          <div data-pronkt-el="flatty">
             <div class="card">
               <img class="card__picture" src="./assets/images/item-8.jpg" alt="">
               <div class="card-infos">
@@ -125,7 +125,7 @@
               </div>
             </div>
           </div>
-          <div data-sjsel="funny">
+          <div data-pronkt-el="funny">
             <div class="card">
               <img class="card__picture" src="./assets/images/item-9.jpg" alt="">
               <div class="card-infos">
@@ -168,8 +168,8 @@
     </div>
   </footer>
   <script type="module">
-    import sortablejs from './sortable.js';
-    const sjs = new sortablejs();
+    import pronkt from './pronkt.js';
+    const pkt = new pronkt();
   </script>
 </body>
 </html>

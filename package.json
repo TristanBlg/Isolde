@@ -1,15 +1,15 @@
 {
-  "name": "sortable-js",
-  "version": "1.1.0",
+  "name": "pronkt",
+  "version": "1.1.2",
   "description": "A javascript plugin to filter elements from a masonry grid.",
-  "main": "./dist/sortable.min.js",
+  "main": "./dist/pronkt.min.js",
   "scripts": {
     "start": "gulp",
     "build": "gulp build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TristanBlg/sortableJs.git"
+    "url": "git+https://github.com/TristanBlg/Pronkt.git"
   },
   "author": {
     "name": "Tristan BOULANGER",
@@ -18,9 +18,9 @@
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TristanBlg/sortableJs/issues"
+    "url": "https://github.com/TristanBlg/Pronkt/issues"
   },
-  "homepage": "https://github.com/TristanBlg/sortableJs#readme",
+  "homepage": "https://github.com/TristanBlg/Pronkt#readme",
   "devDependencies": {
     "babel-core": "6.26.3",
     "babel-preset-env": "1.7.0",

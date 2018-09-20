@@ -1,7 +1,7 @@
-export default class sortablejs {
+export default class pronkt {
   constructor({
-    parent        = document.querySelector('#sjs'),
-    links         = document.querySelectorAll('[data-sjslink]'),
+    parent        = document.querySelector('#pronkt'),
+    links         = document.querySelectorAll('[data-pronkt-link]'),
     active        = 'is-active',
     margin        = 20,
     responsive    = {
@@ -58,10 +58,10 @@ export default class sortablejs {
     ev.preventDefault()
     let {links, active} = this
 
-    if(element.dataset.sjslink === this.dataLink){
+    if(element.dataset.pronktLink === this.dataLink){
       return
     } else {
-      this.dataLink = element.dataset.sjslink
+      this.dataLink = element.dataset.pronktLink
       links.forEach(el => {
         el.isEqualNode(element) ? el.classList.add(active) : el.classList.remove(active)
       })
@@ -89,7 +89,7 @@ export default class sortablejs {
     links.forEach((el, id) => {
       if(id === 0){
         el.classList.add(active)
-        this.dataLink = el.dataset.sjslink
+        this.dataLink = el.dataset.pronktLink
       }
       el.addEventListener('click', ev => {
         this.handleFilterClick(ev, el)
@@ -129,7 +129,7 @@ export default class sortablejs {
         this._fadeIn(el, fadeDuration.in)
         return true
       } else {
-        if(el.dataset.sjsel !== dataLink) {
+        if(el.dataset.pronktEl !== dataLink) {
           this._fadeOut(el, fadeDuration.out)
           return false
         } else {
