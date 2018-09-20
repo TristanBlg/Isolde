@@ -1,4 +1,4 @@
-[![npm: v1.1.2](https://img.shields.io/badge/npm-v1.1.2-blue.svg)](https://www.npmjs.com/package/isolde)
+[![npm: v1.1.3](https://img.shields.io/badge/npm-v1.1.3-blue.svg)](https://www.npmjs.com/package/isolde)
 
 # Isolde
 
