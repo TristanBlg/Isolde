@@ -1,5 +1,5 @@
 {
-  "name": "SortableJs",
+  "name": "sortable-js",
   "version": "1.1.0",
   "description": "A javascript plugin to filter elements from a masonry grid.",
   "main": "./dist/sortable.min.js",
