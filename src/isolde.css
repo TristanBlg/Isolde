@@ -1,11 +1,11 @@
-.pronkt-default{
+.isolde-default{
   position: relative;
   padding: 0;
   margin: 0;
   opacity: 0;
   transition: height .2s ease-out, opacity .2s ease-out .2s;
 }
-[data-pronkt-el]{
+[data-isolde-el]{
   opacity: 0;
   position: absolute;
   top: 0;

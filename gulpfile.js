@@ -17,10 +17,10 @@ gulp.task('browserSync', () => {
 });
 
 gulp.task('js:build', () => {
-  return gulp.src('src/pronkt.js')
+  return gulp.src('src/isolde.js')
     .pipe(babel())
     .pipe(uglify())
-    .pipe(concat('pronkt.min.js'))
+    .pipe(concat('isolde.min.js'))
     .pipe(gulp.dest('dist'))
 });
 gulp.task('css:build', () => {
@@ -28,27 +28,27 @@ gulp.task('css:build', () => {
     autoprefixer({browsers: ['last 1 version']}),
     cssnano()
   ];
-  return gulp.src('src/pronkt.css')
+  return gulp.src('src/isolde.css')
     .pipe(postcss(plugins))
-    .pipe(rename('pronkt.min.css'))
+    .pipe(rename('isolde.min.css'))
     .pipe(gulp.dest('dist'))
 });
 gulp.task('js', () => {
-  return gulp.src('src/pronkt.js')
+  return gulp.src('src/isolde.js')
     .pipe(browserSync.reload({
       stream: true
     }))
 });
 gulp.task('css', () => {
-  return gulp.src('src/pronkt.css')
+  return gulp.src('src/isolde.css')
     .pipe(browserSync.reload({
       stream: true
     }))
 });
 
 gulp.task('watch', ['browserSync', 'js', 'css'], () => {
-  gulp.watch('src/pronkt.css', ['css']);
-  gulp.watch('src/pronkt.js', ['js']);
+  gulp.watch('src/isolde.css', ['css']);
+  gulp.watch('src/isolde.js', ['js']);
   gulp.watch('src/index.html', browserSync.reload);
 })
 

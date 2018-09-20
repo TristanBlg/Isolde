@@ -1,7 +1,7 @@
-export default class pronkt {
+export default class isolde {
   constructor({
-    parent        = document.querySelector('#pronkt'),
-    links         = document.querySelectorAll('[data-pronkt-link]'),
+    parent        = document.querySelector('#isolde'),
+    links         = document.querySelectorAll('[data-isolde-link]'),
     active        = 'is-active',
     margin        = 20,
     responsive    = {
@@ -58,10 +58,10 @@ export default class pronkt {
     ev.preventDefault()
     let {links, active} = this
 
-    if(element.dataset.pronktLink === this.dataLink){
+    if(element.dataset.isoldeLink === this.dataLink){
       return
     } else {
-      this.dataLink = element.dataset.pronktLink
+      this.dataLink = element.dataset.isoldeLink
       links.forEach(el => {
         el.isEqualNode(element) ? el.classList.add(active) : el.classList.remove(active)
       })
@@ -89,7 +89,7 @@ export default class pronkt {
     links.forEach((el, id) => {
       if(id === 0){
         el.classList.add(active)
-        this.dataLink = el.dataset.pronktLink
+        this.dataLink = el.dataset.isoldeLink
       }
       el.addEventListener('click', ev => {
         this.handleFilterClick(ev, el)
@@ -129,7 +129,7 @@ export default class pronkt {
         this._fadeIn(el, fadeDuration.in)
         return true
       } else {
-        if(el.dataset.pronktEl !== dataLink) {
+        if(el.dataset.isoldeEl !== dataLink) {
           this._fadeOut(el, fadeDuration.out)
           return false
         } else {
