@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="./assets/css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Hind:400,600|Open+Sans:300,600" rel="stylesheet">
   <link rel="stylesheet" href="./sortable.css">
-  <script type="text/javascript" src="./sortable.js"></script>
 </head>
 <body>
   <header class="header">
@@ -37,7 +36,7 @@
             </a>
           </li>
         </ul>
-        <div id="sortable" class="sjs-default">
+        <div id="sjs" class="sjs-default">
           <div data-sjsel="flatty">
             <div class="card">
               <img class="card__picture" src="./assets/images/item-1.jpg" alt="">
@@ -168,8 +167,9 @@
       </div>
     </div>
   </footer>
-  <script type="text/javascript">
-    document.querySelector('#sortable').sortablejs()
+  <script type="module">
+    import sortablejs from './sortable.js';
+    const sjs = new sortablejs();
   </script>
 </body>
 </html>
