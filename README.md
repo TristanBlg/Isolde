@@ -1,4 +1,4 @@
-[![npm: v1.1.3](https://img.shields.io/badge/npm-v1.1.3-blue.svg)](https://www.npmjs.com/package/isolde)
+[![npm: v1.1.6](https://img.shields.io/badge/npm-v1.1.6-blue.svg)](https://www.npmjs.com/package/isolde)
 
 # Isolde
 
@@ -11,34 +11,18 @@ Isolde is a lightweight, flexible, and responsive javascript plugin allow you to
 
 This package can be installed with:
 ```
-npm i isolde
+npm install isolde
 ```
 
 Or download the [latest release](https://github.com/TristanBlg/Isolde/releases).
 
 ### Load
-**JavaScript**
 
 ```js
 import isolde from 'isolde';
 import 'isolde/dist/isolde.min.css';
-```
 
-**Static HTML**
-
-Put the required stylesheet at the top of your markup:
-
-```html
-<link rel="stylesheet" href="[__YOUR_PATH__]/isolde.min.css">
-```
-
-Put the script at the bottom of your markup:
-
-```html
-<script type="module">
-  import isolde from '[__YOUR_PATH__]/isolde.min.js';
-  const isoldejs = new isolde();
-</script>
+const ijs = new isolde();
 ```
 
 ### Usage

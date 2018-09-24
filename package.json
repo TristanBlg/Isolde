@@ -1,8 +1,8 @@
 {
   "name": "isolde",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "A javascript plugin to filter elements from a masonry grid.",
-  "main": "./dist/isolde.min.js",
+  "main": "index.js",
   "scripts": {
     "start": "gulp",
     "build": "gulp build"
