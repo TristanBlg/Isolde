@@ -4,8 +4,6 @@
 
 Isolde is a lightweight, flexible, and responsive javascript plugin allow you to filter elements from a "masonry" grid.
 
-[Demo](https://sortablejs.tristanboulanger.fr/)
-
 ## Quick start
 ### Install
 
