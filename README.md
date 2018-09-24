@@ -8,11 +8,22 @@ Isolde is a lightweight, flexible, and responsive javascript plugin allow you to
 
 ## Quick start
 ### Install
+
+This package can be installed with:
 ```
 npm i isolde
 ```
 
+Or download the [latest release](https://github.com/TristanBlg/Isolde/releases).
+
 ### Load
+**JavaScript**
+
+```js
+import isolde from 'isolde';
+import 'isolde/dist/isolde.min.css';
+```
+
 **Static HTML**
 
 Put the required stylesheet at the top of your markup:
@@ -39,6 +50,9 @@ Put the script at the bottom of your markup:
 ```html
 <!-- 1st step -->
 <ul>
+  <li>
+    <a data-isolde-link="all"> [...] </a>
+  </li>
   <li>
     <a data-isolde-link="food"> [...] </a>
   </li>

@@ -1,4 +1,4 @@
-export default class isolde {
+class isolde {
   constructor({
     parent        = document.querySelector('#isolde'),
     links         = document.querySelectorAll('[data-isolde-link]'),
@@ -205,3 +205,5 @@ export default class isolde {
     requestAnimationFrame(animation)
   }
 }
+
+export default isolde
